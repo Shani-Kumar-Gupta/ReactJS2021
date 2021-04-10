@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Nav from './components/Nav';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      show: true
+    }
+    console.log("constructor");
+  }
+  componentDidMount(){
+    console.log("componentDidMount");
+  }
+  render(){
+    console.log("render");
+    return (
+      <div className="App">
+        <h1>React Component Lifecycle Method</h1>
+        {this.state.show === true && <Nav/>}
+        <button onClick={() => {this.setState({show: !this.state.show})}}>Toggle NavBar</button>
+      </div>
+    );
+  }
 }
 
 export default App;
