@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import CComponent from './components/CComponent';
+import FComponent from './components/FComponent';
 
 function App() {
   //let name = "Shani";
@@ -51,8 +52,8 @@ function App() {
         </div>
         <div>
           <h2>useEffect() functional Hook</h2>
-          <button onClick={() => setFlag(!flag)}>Toggle Class Component</button>
-          {flag ? <CComponent/> : ""}
+          <button onClick={() => setFlag(!flag)}>Toggle Component</button>
+          { flag ? <CComponent/> : <FComponent/> }
         </div>
       </div>
     </div>
