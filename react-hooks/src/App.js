@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import CComponent from './components/CComponent';
 import FComponent from './components/FComponent';
+import FUseRefHook from './components/FUseRefHook';
 
 function App() {
   //let name = "Shani";
@@ -54,6 +55,11 @@ function App() {
           <h2>useEffect() functional Hook</h2>
           <button onClick={() => setFlag(!flag)}>Toggle Component</button>
           { flag ? <CComponent/> : <FComponent/> }
+        </div>
+        <hr/>
+        <div>
+          <h2>useRef() functional Hook</h2>
+          <FUseRefHook/>
         </div>
       </div>
     </div>
