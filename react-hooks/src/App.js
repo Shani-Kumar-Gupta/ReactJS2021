@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  //let name = "Shani";
+  //console.log(useState());
+  const [name, setName] = useState("Shani");
+  const [flag, setFlag] = useState(false);
+  const [count, setCount] = useState(0);
+  const [names, setNames] = useState([]);
+
+  function changeName(){
+    setFlag(!flag);
+  }
+
+  function increment(){
+    setCount((prevState) => prevState + 1);
+  }
+
+  function decrement(){
+    setCount((prevState) => prevState - 1);
+  }
+
+  function addNames(e){
+    e.preventDefault();
+    setNames([...names, {id: names.length, name}])
+    setName("");    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Hello, {flag ? name : ""}</div>
+      <button onClick={changeName}>Click Me</button>
+      <hr/>
+      <button onClick={increment}>+</button>
+      <div>{count}</div>
+      <button onClick={decrement}>-</button>
+      <hr/>
+      <form onSubmit={ addNames }>
+        <input type="text" placeholder="add name" value={name} onChange={(e) => setName(e.target.value)} />
+        <button>Submit</button>
+      </form>
+      <hr></hr>
+      <div>
+        <p>Name List:</p>
+        {names.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </div>
     </div>
   );
 }
