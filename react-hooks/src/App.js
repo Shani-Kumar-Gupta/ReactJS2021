@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import CComponent from './components/CComponent';
 
 function App() {
   //let name = "Shani";
@@ -28,23 +29,31 @@ function App() {
   }
   return (
     <div className="App">
-      <div>Hello, {flag ? name : ""}</div>
-      <button onClick={changeName}>Click Me</button>
-      <hr/>
-      <button onClick={increment}>+</button>
-      <div>{count}</div>
-      <button onClick={decrement}>-</button>
-      <hr/>
-      <form onSubmit={ addNames }>
-        <input type="text" placeholder="add name" value={name} onChange={(e) => setName(e.target.value)} />
-        <button>Submit</button>
-      </form>
-      <hr></hr>
       <div>
-        <p>Name List:</p>
-        {names.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
+        <h2>useState() functional Hook</h2>
+        <div>Hello, {flag ? name : ""}</div>
+        <button onClick={changeName}>Click Me</button>
+        <hr/>
+        <button onClick={increment}>+</button>
+        <div>{count}</div>
+        <button onClick={decrement}>-</button>
+        <hr/>
+        <form onSubmit={ addNames }>
+          <input type="text" placeholder="add name" value={name} onChange={(e) => setName(e.target.value)} />
+          <button>Submit</button>
+        </form>
+        <hr></hr>
+        <div>
+          <p>Name List:</p>
+          {names.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </div>
+        <div>
+          <h2>useEffect() functional Hook</h2>
+          <button onClick={() => setFlag(!flag)}>Toggle Class Component</button>
+          {flag ? <CComponent/> : ""}
+        </div>
       </div>
     </div>
   );
