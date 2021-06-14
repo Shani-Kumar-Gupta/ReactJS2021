@@ -24,7 +24,6 @@ function FComponent(){
         }
     }, [time]);
 
-    // destroy the component
     const showDate = () => {
         setTime(new Date().toString());
     }
