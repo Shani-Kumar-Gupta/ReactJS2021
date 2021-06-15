@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
+import factorial from '../helpers';
+import DisplayName from './DisplayName';
 
 function FUseMemoHook() {
     /*
         1. Optimize expensive operation
-        2. Referential equality
+        2. Referential equality: Premitive and non premitive data type
     */
-    const factorial = (num) => {
-
-    }
    const [counter, setCounter] = useState(1);
-   const result = factorial(counter);
+   //const result = factorial(counter);
+   const result = useMemo(() => {
+       return factorial(counter);
+   }, [counter]);
    const [name, setName] = useState("");
     return (
         <div>
@@ -28,7 +30,7 @@ function FUseMemoHook() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <p>My name is {name}</p>
+                <DisplayName name={name}/>
             </div>
         </div>
     )

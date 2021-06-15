@@ -3,6 +3,7 @@ import './App.css';
 import CComponent from './components/CComponent';
 import FComponent from './components/FComponent';
 import FUseRefHook from './components/FUseRefHook';
+import FUseMemoHook from './components/FUseMemoHook';
 
 function App() {
   //let name = "Shani";
@@ -60,6 +61,10 @@ function App() {
         <div>
           <h2>useRef() functional Hook</h2>
           <FUseRefHook/>
+        </div>
+        <hr />
+        <div>
+          <FUseMemoHook />
         </div>
       </div>
     </div>
